@@ -16,7 +16,8 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
+      margin: const EdgeInsets.only(
+          top: kDefaultPadding * 3 / 2, bottom: kDefaultPadding),
       padding: const EdgeInsets.only(left: kDefaultPadding / 2),
       height: 60,
       child: ListView.builder(
