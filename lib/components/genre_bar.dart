@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moovz/controllers/genre_provider.dart';
+import 'package:moovz/models/genre.dart';
 
 import '../constants.dart';
 import 'genre_card.dart';
@@ -15,19 +17,27 @@ class _GenreBarState extends State<GenreBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 42,
+      height: 60,
       margin: const EdgeInsets.only(bottom: kDefaultPadding),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: navBarList.length,
-        itemBuilder: (context, index) => genreItemBuilder(context, index),
-      ),
+      child: FutureBuilder(
+          future: GenreProvider.genres,
+          builder: (builder, AsyncSnapshot<List<Genre>> snapshot) {
+            return snapshot.hasData
+                ? ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, index) =>
+                        genreItemBuilder(context, index, snapshot.data![index]),
+                  )
+                : Container();
+          }),
     );
   }
 
-  genreItemBuilder(BuildContext context, int index) {
+  genreItemBuilder(BuildContext context, int index, Genre genre) {
     return GestureDetector(
-      child: GenreCard(genre: 'Horror', isSelected: selectedCategory == index),
+      child:
+          GenreCard(genre: genre.name, isSelected: selectedCategory == index),
       onTap: () {
         setState(() {
           selectedCategory = index;
