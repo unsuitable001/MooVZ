@@ -10,3 +10,11 @@ const kTextLightColor = Color(0xFF9A9BB2);
 const kSecondaryColor = kIconSecondaryColor;
 
 const kDefaultPadding = 20.0;
+
+const kDefaultShadow = BoxShadow(
+  offset: Offset(0, 4),
+  blurRadius: 4,
+  color: Colors.black26,
+);
+
+const List<String> navBarList = ['Popular', 'New', 'Upcoming'];

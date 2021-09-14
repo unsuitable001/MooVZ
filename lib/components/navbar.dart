@@ -12,17 +12,13 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int selectedCategory = 0;
-  List<String> categories = ['Popular', 'New', 'Upcoming'];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(
-          top: kDefaultPadding * 3 / 2, bottom: kDefaultPadding),
-      padding: const EdgeInsets.only(left: kDefaultPadding / 2),
+    return SizedBox(
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
+        itemCount: navBarList.length,
         itemBuilder: (context, index) => navItemBuilder(context, index),
       ),
     );
@@ -42,7 +38,7 @@ class _NavBarState extends State<NavBar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              categories[index],
+              navBarList[index],
               style: Theme.of(context).textTheme.headline6?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: index == selectedCategory
