@@ -19,7 +19,7 @@ class GenreCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
           color: isSelected ? kSecondaryColor : Colors.white,
-          border: Border.all(color: Colors.black26),
+          border: Border.all(color: Colors.transparent),
           borderRadius: BorderRadius.circular(10),
           boxShadow: const <BoxShadow>[kDefaultShadow]),
       child: Text(

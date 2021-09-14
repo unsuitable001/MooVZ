@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moovz/components/app_bar.dart';
 import 'package:moovz/components/genre_bar.dart';
+import 'package:moovz/components/movie_list.dart';
 import 'package:moovz/components/navbar.dart';
 import 'package:moovz/constants.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +17,7 @@ class _HomePageState extends State<HomePage> {
             top: kDefaultPadding * 3 / 2, bottom: kDefaultPadding / 3),
         padding: const EdgeInsets.only(left: kDefaultPadding / 2),
         child: Column(
-          children: const <Widget>[NavBar(), GenreBar()],
+          children: const <Widget>[NavBar(), GenreBar(), MovieList()],
         ),
       ),
     );

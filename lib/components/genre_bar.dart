@@ -14,8 +14,9 @@ class _GenreBarState extends State<GenreBar> {
   int selectedCategory = 0;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 42,
+      margin: const EdgeInsets.only(bottom: kDefaultPadding),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: navBarList.length,
