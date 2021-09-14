@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moovz/components/app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,10 +13,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE2F0F6),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFE2F0F6),
-        elevation: 0,
-      ),
+      appBar: myAppBar(context),
       body: const Center(child: Text('Hello')),
     );
   }
