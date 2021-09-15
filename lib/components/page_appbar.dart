@@ -7,7 +7,8 @@ AppBar pageAppBar(BuildContext context) {
   return AppBar(
     backgroundColor: Colors.transparent,
     elevation: 0,
-    leading: buttonBuilder(CupertinoIcons.back, onPressed: () => print('back')),
+    leading: buttonBuilder(CupertinoIcons.back,
+        onPressed: () => Navigator.of(context).pop()),
     actions: <Widget>[
       buttonBuilder(CupertinoIcons.bookmark,
           onPressed: () => print('bookmark')),

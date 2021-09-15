@@ -10,25 +10,28 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        buildInfoCard(context),
-        Container(
-          margin: const EdgeInsets.only(
-            left: 40,
-            bottom: 40,
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w500/${movie.poster}',
-              fit: BoxFit.contain,
-              height: 150,
-              width: 100,
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pushNamed('/details'),
+      child: Stack(
+        children: <Widget>[
+          buildInfoCard(context),
+          Container(
+            margin: const EdgeInsets.only(
+              left: 40,
+              bottom: 40,
             ),
-          ),
-        )
-      ],
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w500/${movie.poster}',
+                fit: BoxFit.contain,
+                height: 150,
+                width: 100,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

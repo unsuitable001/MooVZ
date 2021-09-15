@@ -11,7 +11,7 @@ class DetailsPage extends StatelessWidget {
       children: [
         Image.network(
           'https://image.tmdb.org/t/p/w500/vs63P2xYUGn3QmQ4JnkX1MY4BrO.jpg',
-          height: MediaQuery.of(context).size.height / 3,
+          height: MediaQuery.of(context).size.height / 2.7,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
