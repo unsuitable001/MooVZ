@@ -19,3 +19,10 @@ MOVIE_API_KEY='<YOUR_API_KEY>'
 ```bash
 flutter run
 ```
+
+## Screenshots
+
+Movie Discovery          |  Movie Details
+:-------------------------:|:-------------------------:
+<img width="402" alt="Screenshot 2021-09-15 at 12 56 31 PM" src="https://user-images.githubusercontent.com/26590510/133389736-a6283dc2-b5b7-48aa-9748-40f7b33223eb.png"> | <img width="401" alt="Screenshot 2021-09-15 at 12 56 50 PM" src="https://user-images.githubusercontent.com/26590510/133389757-840a7f1c-ce42-479f-892e-a62797a04889.png">
+
