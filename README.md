@@ -4,6 +4,10 @@ Yet another movie app
 
 Data is fetched from `api.themoviedb.org`.
 
+## Get APK
+
+[Download APK](https://github.com/unsuitable001/MooVZ/releases/tag/0.1)
+
 ## Usage
 
 1. Get your API Key from `api.themoviedb.org`.
