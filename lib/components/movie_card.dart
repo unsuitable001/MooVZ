@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:moovz/controllers/genre_provider.dart';
+import 'package:moovz/models/movie.dart';
 
 import '../constants.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({Key? key}) : super(key: key);
+  final Movie movie;
+  const MovieCard({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,12 @@ class MovieCard extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.network('https://via.placeholder.com/100x150'),
+            child: Image.network(
+              'https://image.tmdb.org/t/p/w500/${movie.poster}',
+              fit: BoxFit.contain,
+              height: 150,
+              width: 100,
+            ),
           ),
         )
       ],
@@ -53,16 +61,26 @@ class MovieCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Text('Movie Title',
+                    Text(movie.name,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1
                             ?.copyWith(fontWeight: FontWeight.w600)),
-                    Text('Movie Categories',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText2
-                            ?.copyWith(color: kSecondaryFontColor)),
+                    FutureBuilder<List<String>>(
+                        future: GenreProvider.genreNamesFromId(movie.genreIds),
+                        builder: (context, snapshot) {
+                          return snapshot.hasData
+                              ? Text(categoryStr(snapshot.data!),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.copyWith(color: kSecondaryFontColor))
+                              : Text('Movie Categories',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.copyWith(color: kSecondaryFontColor));
+                        }),
                     RichText(
                         text: TextSpan(children: [
                       const WidgetSpan(
@@ -71,7 +89,7 @@ class MovieCard extends StatelessWidget {
                         color: Colors.amber,
                       )),
                       TextSpan(
-                          text: '7.1',
+                          text: movie.rating,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -85,5 +103,10 @@ class MovieCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String categoryStr(List<String> genres) {
+    final catStr = genres.toString().replaceAll(',', ' |');
+    return catStr.substring(1, catStr.length - 1);
   }
 }

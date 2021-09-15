@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         margin: const EdgeInsets.only(top: kDefaultPadding * 3 / 2),
         padding: const EdgeInsets.only(left: kDefaultPadding / 2),
         child: Column(
-          children: const <Widget>[NavBar(), GenreBar(), MovieList()],
+          children: <Widget>[const NavBar(), const GenreBar(), MovieList()],
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),

@@ -22,4 +22,16 @@ class GenreProvider {
   }
 
   static Future<List<Genre>> get genres => _completer.future;
+  static Future<List<String>> genreNamesFromId(List genreIds) async {
+    final genres = await _completer.future;
+    List<String> genreNames = [];
+    for (final genreId in genreIds) {
+      for (final genres in genres) {
+        if (genres.id == genreId) {
+          genreNames.add(genres.name);
+        }
+      }
+    }
+    return genreNames;
+  }
 }
