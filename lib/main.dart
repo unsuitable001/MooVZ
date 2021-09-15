@@ -1,5 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
+import 'package:moovz/screens/details.dart';
 import 'controllers/genre_provider.dart';
 import 'screens/home.dart';
 
@@ -20,7 +21,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/details': (context) => const DetailsPage()
+      },
+      initialRoute: '/',
     );
   }
 }
