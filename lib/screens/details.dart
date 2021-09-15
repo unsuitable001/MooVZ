@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moovz/components/buy_button.dart';
 import 'package:moovz/components/details_box.dart';
 import 'package:moovz/components/page_appbar.dart';
 import 'package:moovz/constants.dart';

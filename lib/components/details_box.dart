@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moovz/components/buy_button.dart';
 import 'package:moovz/models/movie.dart';
 
 import '../constants.dart';
@@ -126,6 +127,7 @@ class DetailsBox extends StatelessWidget {
                     ],
                   ),
                 ),
+                const BuyButton()
               ],
             ),
           )
